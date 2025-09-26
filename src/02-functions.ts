@@ -60,8 +60,18 @@ function findFriends(
     friends: Friend[],
     predicate: (f: Friend) => boolean
 ): Friend[] {
-    return friends.filter(predicate);
+    return friends.filter(predicate)
 }
+
+function addInterest(friend: Friend, interest: string): string[] {
+    if (!friend.interests) {
+        friend.interests = []
+    }
+    friend.interests.push(interest)
+    return friend.interests
+}
+
+console.log(addInterest(friends[1], 'Politics'))
 
 //console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
 //console.log(findFriends(friends, (friend) => friend.age < 35));
